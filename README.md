@@ -8,8 +8,9 @@ It accompanies users throughout the entire travel lifecycle—from travel planni
 
 The long-term vision of TripMind AI is to evolve into an AI Travel Agent capable of completing real travel tasks on behalf of users.
 
-Unlike traditional itinerary generators, TripMind AI aims to become a full-process travel companion, supporting users from travel planning to real-time assistance and travel memories.
+Unlike traditional itinerary generators, TripMind AI focuses on the complete travel experience rather than simply generating itineraries.
 
+It helps users before traveling, supports them during the journey, and preserves valuable memories after the trip.
 ---
 
 ## 📌 Project Background
@@ -102,6 +103,22 @@ Users can:
 
 
 ---
+## 🎯 Product Vision
+
+TripMind AI is built around three development stages:
+
+### AI Travel Planner (Version 1.0)
+
+Generate personalized travel itineraries.
+
+### AI Travel Companion (Version 1.x)
+
+Accompany users before, during, and after every journey.
+
+### AI Travel Agent (Version 2.0)
+
+Help users complete real travel tasks such as hotel booking, flight booking, ticket purchasing, and itinerary management.
+
 
 ## 📂 Project Structure
 
