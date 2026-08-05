@@ -1,51 +1,112 @@
-# TripMind-AI
-An AI-powered travel companion built with Vue3, FastAPI and LLM.
-TripMind AI 是一款面向大学生自由行场景的 AI 全流程旅行助手，
-帮助用户完成从旅行规划、地图导航到旅行记录的完整体验。
+# 🌍 TripMind AI
 
-🚧 Status: Under Active Development
+> An AI-powered travel companion for university students.
 
-项目背景
+TripMind AI is an enterprise-level AI Travel Agent designed to help users plan, execute, and record their journeys with AI assistance.
 
-✨ 核心功能
+Unlike traditional itinerary generators, TripMind AI aims to become a full-process travel companion, supporting users from travel planning to real-time assistance and travel memories.
 
-🛠 技术栈
-Frontend
--Vue3
--TypeScript
--Vite
--Pinia
+---
 
-Backend
--FastAPI
--SQLAIchemy
--MySQL
+## 📌 Project Background
 
-AI
--LLM API
--Prompt Engineering
+Nowadays, travelers often need to search information across multiple platforms:
 
-Map
--AMap SDK
+- Xiaohongshu
+- Zhihu
+- Bilibili
+- Google
+- Map applications
+- Hotel platforms
 
+Users spend a lot of time collecting and organizing information.
 
-📁 项目结构
+TripMind AI aims to simplify this process by using AI technology to provide personalized travel planning and intelligent travel assistance.
 
-🚀 开发计划（28 Days）
+---
 
-📅 开发日志
+## ✨ Core Features
 
-📌 当前开发状态
-## 📌 Current Status
-- [x] Project Initialization
-- [ ] Product Design
-- [ ] Architecture Design
-- [ ] Database Design
-- [ ] API Design
-- [ ] Frontend Development
-- [ ] Backend Development
-- [ ] AI Integration
-- [ ] Deployment
+### AI Travel Planning
+
+Generate personalized travel plans based on:
+
+- Destination
+- Travel dates
+- Budget
+- Interests
+- Transportation preferences
 
 
-📄 License
+### Smart Route Planning
+
+Provide:
+
+- Daily itinerary
+- Attraction recommendations
+- Transportation suggestions
+- Map visualization
+
+
+### AI Travel Assistant
+
+Future features:
+
+- AI travel Q&A
+- Image-based attraction recognition
+- AI translation
+- Travel guide
+
+
+### Travel Records
+
+Users can:
+
+- Save travel plans
+- Review previous trips
+- Edit and regenerate itineraries
+
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- Vue3
+- TypeScript
+- Vite
+- Pinia
+
+
+### Backend
+
+- FastAPI
+- SQLAlchemy
+- MySQL
+
+
+### AI
+
+- LLM API
+- Prompt Engineering
+
+
+### Map
+
+- AMap SDK
+
+
+---
+
+## 📂 Project Structure
+
+```text
+TripMind-AI
+
+├── frontend
+├── backend
+├── docs
+├── prompt
+├── scripts
+└── README.md
