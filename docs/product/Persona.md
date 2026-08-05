@@ -56,3 +56,110 @@ Travel Frequency:每学期2-4次
 -希望预算透明
 
 -希望路线合理
+
+# User Persona
+
+
+## Research Source
+
+This persona is based on interviews with three real users:
+
+- 面条
+- 乌柩
+- 芊沫
+
+
+---
+
+# Persona 01: 面条
+
+
+## Basic Information
+
+Name:
+面条（Interview User A）
+
+
+Travel Frequency:
+
+1-2 times per year
+
+
+Travel Style:
+
+Free independent travel
+
+
+Budget:
+
+Depends on destination
+
+
+---
+
+## Travel Behavior
+
+
+Before Travel:
+
+Usually searches Xiaohongshu and travel booking platforms.
+
+
+Main problems:
+
+- Difficult to find reliable travel plans
+- Hard to choose suitable accommodation
+
+
+During Travel:
+
+Frequently uses navigation apps.
+
+
+Problems:
+
+- Has experienced getting lost
+- Has encountered outdated travel guides
+
+
+After Travel:
+
+Usually organizes photos.
+
+Prefers keeping:
+
+- Souvenirs
+- Travel memories
+
+
+AI Expectation:
+
+Wants AI to provide realistic and referenceable travel plans.
+
+
+
+---
+
+# Persona 02: 乌柩
+
+
+## Basic Information
+
+Travel Frequency:
+
+Domestic travel once and interprovincial travel once per year
+
+
+Travel Style:
+
+Free travel / customized travel
+
+
+Budget:
+
+Around 5000 RMB
+
+
+...
+
+
