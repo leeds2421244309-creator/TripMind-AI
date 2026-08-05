@@ -2,7 +2,11 @@
 
 > An AI-powered travel companion for university students.
 
-TripMind AI is an enterprise-level AI Travel Agent designed to help users plan, execute, and record their journeys with AI assistance.
+TripMind AI is an enterprise-level AI Travel Companion designed for university students.
+
+It accompanies users throughout the entire travel lifecycle—from travel planning and itinerary generation to real-time travel assistance and travel memory management.
+
+The long-term vision of TripMind AI is to evolve into an AI Travel Agent capable of completing real travel tasks on behalf of users.
 
 Unlike traditional itinerary generators, TripMind AI aims to become a full-process travel companion, supporting users from travel planning to real-time assistance and travel memories.
 
