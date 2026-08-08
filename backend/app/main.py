@@ -3,16 +3,22 @@ from sqlalchemy import text
 
 from app.db.database import engine
 
+from app.api import travel_plan
+
 app = FastAPI(
     title="TripMind AI",
     version="1.0.0"
+)
+
+app.include_router(
+    travel_plan.router
 )
 
 
 @app.get("/")
 def root():
     return {
-        "message": "Welcome to TripMind AI"
+        "message": "TripMind AI Backend Running"
     }
 
 
