@@ -4,6 +4,7 @@ from sqlalchemy import text
 from app.db.database import engine
 
 from app.api import travel_plan
+from app.api.auth import auth
 
 app = FastAPI(
     title="TripMind AI",
@@ -14,6 +15,9 @@ app.include_router(
     travel_plan.router
 )
 
+app.include_router(
+    auth.router
+)
 
 @app.get("/")
 def root():
