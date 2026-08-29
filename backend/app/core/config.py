@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     QWEN_MODEL:str
     QWEN_BASE_URL:str
 
+    # Map
+    AMAP_API_KEY: str
+    AMAP_BASE_URL: str
+    
     class Config:
         env_file = ".env"
 

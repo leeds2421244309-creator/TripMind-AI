@@ -11,6 +11,7 @@ from app.services.prompt_builder import build_travel_prompt
 
 
 def generate_travel_plan(
+    user:str,
     destination: str,
     days: int,
     budget: int,

@@ -4,7 +4,7 @@ import json
 def parse_json_response(content: str):
 
     try:
-        return json.loads(content)
+        data=json.loads(content)
 
     except json.JSONDecodeError:
 
@@ -15,8 +15,21 @@ def parse_json_response(content: str):
 
             json_text = content[start:end + 1]
 
-            return json.loads(json_text)
+            data = json.loads(json_text)
 
-        raise ValueError(
-            "AI返回内容不是有效JSON"
-        )
+        else:
+
+            raise ValueError(
+                "AI返回内容不是有效JSON"
+            )
+
+     # AI没有按照要求返回status时，自动补充
+    if "status" not in data:
+
+        data = {
+            "status": "success",
+            "plan": data
+        }
+
+
+    return data

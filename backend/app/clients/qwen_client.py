@@ -9,6 +9,7 @@ from app.core.config import settings
 
 from app.utils.json_parser import parse_json_response
 
+import json
 
 client = OpenAI(
     api_key=settings.QWEN_API_KEY,
@@ -28,7 +29,8 @@ def chat_with_qwen(prompt: str):
         ]
     )
 
-    #content = response.choices[0].message.content
+    content = response.choices[0].message.content
     #强制判定json
-    
-    return response.choices[0].message.content
+    return parse_json_response(content)
+
+    # return response.choices[0].message.content

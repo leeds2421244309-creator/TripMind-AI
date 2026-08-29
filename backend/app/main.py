@@ -8,7 +8,7 @@ from app.api.auth import auth
 
 from app.api import ai
 
-from app.api import chat
+from app.api import chat, map
 
 app = FastAPI(
     title="TripMind AI",
@@ -32,6 +32,9 @@ app.include_router(
     chat.router
 )#把聊天功能安装到服务器。
 
+app.include_router(
+    map.router
+)
 @app.get("/")
 def root():
     return {

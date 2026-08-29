@@ -26,6 +26,7 @@ def generate_plan(
     )
 
     result = generate_travel_plan(
+        user=current_user,
         destination=request.destination,
         days=request.days,
         budget=request.budget,
@@ -33,4 +34,4 @@ def generate_plan(
         preferences=request.preferences,
     )
 
-    return TravelGenerateResponse(result=result)
+    return result
