@@ -3,12 +3,12 @@ from sqlalchemy import text
 
 from app.db.database import engine
 
-from app.api import travel_plan
+
 from app.api.auth import auth
 
 from app.api import ai
 
-from app.api import chat, map
+from app.api import chat, map,travel
 
 app = FastAPI(
     title="TripMind AI",
@@ -16,9 +16,9 @@ app = FastAPI(
     
 )
 
-app.include_router(
-    travel_plan.router
-)#一次接收一个 Router。
+# app.include_router(
+#     travel_plan.router
+# )#一次接收一个 Router。
 
 app.include_router(
     auth.router
@@ -34,6 +34,10 @@ app.include_router(
 
 app.include_router(
     map.router
+)
+
+app.include_router(
+    travel.router
 )
 @app.get("/")
 def root():

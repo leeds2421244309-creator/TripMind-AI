@@ -71,6 +71,7 @@ def search_poi(
     return {
         "name": poi["name"],
         "address": poi["address"],
+        "location": poi["location"] ,
         "longitude": float(longitude),
         "latitude": float(latitude)
     }

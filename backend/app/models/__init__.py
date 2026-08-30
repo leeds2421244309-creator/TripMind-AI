@@ -1,5 +1,4 @@
 from app.models.user import User
-from app.models.travel_plan import TravelPlan
 from app.models.itinerary_day import ItineraryDay
 from app.models.itinerary_poi import ItineraryPoi
 from app.models.favorite import Favorite
