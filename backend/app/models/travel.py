@@ -6,6 +6,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 from datetime import date, datetime
 
+from app.models.budget_item import BudgetItem
+
 class Travel(Base):
     __tablename__ = "travels"
 
@@ -67,33 +69,43 @@ class Travel(Base):
 
     total_budget: Mapped[int] = mapped_column(
         Integer,
+        default=0,
         nullable=False,
     )
 
-    # ===== 用户偏好 =====
-    preferences: Mapped[str | None] = mapped_column(
-        Text,
-        nullable=True,
+    currency: Mapped[str] = mapped_column(
+        String(10),
+        default="CNY",
+        nullable=False,
     )
+    budget_mode: Mapped[bool] = mapped_column(
+        default=False,
+        nullable=False,
+    )
+    # # ===== 用户偏好 =====
+    # preferences: Mapped[str | None] = mapped_column(
+    #     Text,
+    #     nullable=True,
+    # )
 
     # transport_preference: Mapped[str | None] = mapped_column(
     #     String(50),
     #     nullable=True,
     # )
 
-    long_transport_preference: Mapped[str | None] = mapped_column(
-        String(50),
-        nullable=True,
-    )
-    local_transport_preference: Mapped[str | None] = mapped_column(
-        String(50),
-        nullable=True,
-    )
+    # long_transport_preference: Mapped[str | None] = mapped_column(
+    #     String(50),
+    #     nullable=True,
+    # )
+    # local_transport_preference: Mapped[str | None] = mapped_column(
+    #     String(50),
+    #     nullable=True,
+    # )
 
-    notes: Mapped[str | None] = mapped_column(
-        Text,
-        nullable=True,
-    )
+    # notes: Mapped[str | None] = mapped_column(
+    #     Text,
+    #     nullable=True,
+    # )
 
     # planning / confirmed / traveling / finished
     status: Mapped[str] = mapped_column(
@@ -115,4 +127,24 @@ class Travel(Base):
         nullable=False,
     )
 
+    #预算决策结果
+    budget_items: Mapped[list["BudgetItem"]] = relationship(
+    "BudgetItem",
+    back_populates="travel",
+    cascade="all, delete-orphan",
+    )
     
+    #预定信息
+    bookings: Mapped[list["TravelBooking"]] = relationship(
+        "TravelBooking",
+        back_populates="travel",
+        cascade="all, delete-orphan"
+    )
+    #用户偏好
+    preference = relationship(
+        "TravelPreference",
+        back_populates="travel",
+        uselist=False,
+        cascade="all, delete-orphan",
+    )
+        

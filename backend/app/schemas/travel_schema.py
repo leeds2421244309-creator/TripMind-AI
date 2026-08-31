@@ -22,36 +22,36 @@ class TravelCreateRequest(BaseModel):
         description="出行人数"
     )
 
-    total_budget: int = Field(
-        default=0,
-        ge=0,
-        description="总预算"
-    )
-
-    preferences: str | None = Field(
-        default=None,
-        description="旅行偏好（用户自由输入）"
-    )
-
-    # transport_preference: str | None = Field(
-    #     default=None,
-    #     description="交通偏好，例如公共交通、自驾、飞机"
+    # total_budget: int = Field(
+    #     default=0,
+    #     ge=0,
+    #     description="总预算"
     # )
 
-    long_transport_preference: str | None = Field(
-        default=None,
-        description="大交通偏好：飞机、高铁、轮船、大巴、自驾、最便宜、最快"
-    )
+    # preferences: str | None = Field(
+    #     default=None,
+    #     description="旅行偏好（用户自由输入）"
+    # )
 
-    local_transport_preference: str | None = Field(
-        default=None,
-        description="市内交通偏好：公共交通、步行优先、打车优先、自驾"
-    )
+    # # transport_preference: str | None = Field(
+    # #     default=None,
+    # #     description="交通偏好，例如公共交通、自驾、飞机"
+    # # )
 
-    notes: str | None = Field(
-        default=None,
-        description="旅行备注"
-    )
+    # long_transport_preference: str | None = Field(
+    #     default=None,
+    #     description="大交通偏好：飞机、高铁、轮船、大巴、自驾、最便宜、最快"
+    # )
+
+    # local_transport_preference: str | None = Field(
+    #     default=None,
+    #     description="市内交通偏好：公共交通、步行优先、打车优先、自驾"
+    # )
+
+    # notes: str | None = Field(
+    #     default=None,
+    #     description="旅行备注"
+    # )
 
 
 # 返回旅行信息
@@ -70,12 +70,12 @@ class TravelResponse(BaseModel):
     people_count: int
     total_budget: int
 
-    preferences: str | None = None
+    # preferences: str | None = None
 
-    long_transport_preference: str | None = None
-    local_transport_preference: str | None = None
+    # long_transport_preference: str | None = None
+    # local_transport_preference: str | None = None
 
-    notes: str | None = None
+    # notes: str | None = None
 
     status: str
 
@@ -103,3 +103,24 @@ class TravelListItem(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# ===== Budget 页面配置 =====
+
+class BudgetSetupRequest(BaseModel):
+
+    total_budget: int = Field(
+        ...,
+        ge=0,
+        description="旅行总预算"
+    )
+
+    currency: str = Field(
+        default="CNY",
+        description="预算货币：CNY/HKD/KRW/JPY..."
+    )
+
+    budget_mode: bool = Field(
+        default=True,
+        description="是否开启预算管理"
+    )

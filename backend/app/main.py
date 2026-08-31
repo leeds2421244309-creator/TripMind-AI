@@ -8,7 +8,8 @@ from app.api.auth import auth
 
 from app.api import ai
 
-from app.api import chat, map,travel
+from app.api import chat, map,travel,budget,ocr,preference,booking,todo
+
 
 app = FastAPI(
     title="TripMind AI",
@@ -38,6 +39,22 @@ app.include_router(
 
 app.include_router(
     travel.router
+)
+app.include_router(
+    budget.router
+)
+app.include_router(
+    ocr.router
+)
+
+app.include_router(
+    preference.router
+)
+app.include_router(
+    booking.router
+)
+app.include_router(
+    todo.router
 )
 @app.get("/")
 def root():

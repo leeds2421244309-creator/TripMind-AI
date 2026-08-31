@@ -18,11 +18,14 @@ def create_travel(
         start_date=request.start_date,
         end_date=request.end_date,
         people_count=request.people_count,
-        total_budget=request.total_budget,
-        preferences=request.preferences,
-        long_transport_preference=request.long_transport_preference,
-        local_transport_preference=request.local_transport_preference,
-        notes=request.notes,
+        # total_budget=request.total_budget,
+        # preferences=request.preferences,
+        # long_transport_preference=request.long_transport_preference,
+        # local_transport_preference=request.local_transport_preference,
+        # notes=request.notes,
+        total_budget=0,
+        currency="CNY",
+        budget_mode=False,
     )
 
     db.add(travel)
