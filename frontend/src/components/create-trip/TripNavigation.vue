@@ -36,7 +36,9 @@ const steps=[
 
 function goPage(index:number){
 
-  router.push(steps[index].path);
+  const step=steps[index];
+  if(!step) return;
+  router.push(step.path);
 
 }
 

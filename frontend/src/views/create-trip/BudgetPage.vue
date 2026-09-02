@@ -1,42 +1,4 @@
-<script setup lang="ts">
-import { useRouter } from "vue-router";
+<!-- 大交通的单位应该不能有人均，有很多都不需要显示人均，我们列出需要显示人均的？还是说可以在人均项手动选择开关
+已填写的状态就是已分配 -->
 
-const router = useRouter();
-
-const nextStep = () => {
-  router.push("/create-trip/preference");
-};
-
-const previousStep = () => {
-  router.back();
-};
-</script>
-
-<template>
-  <div class="page">
-    <p class="step">Step 2 / 5</p>
-
-    <h1>预算设置</h1>
-
-    <p>填写旅行预算。</p>
-
-    <div class="buttons">
-      <button @click="previousStep">上一步</button>
-      <button @click="nextStep">下一步</button>
-    </div>
-  </div>
-</template>
-
-<style scoped>
-.page {
-  padding: 24px;
-}
-.step {
-  color: #2563eb;
-  font-weight: bold;
-}
-.buttons {
-  display: flex;
-  gap: 12px;
-}
-</style>
+https://chatgpt.com/s/t_6a97ef15ccf081918cbabb193ad49e4a

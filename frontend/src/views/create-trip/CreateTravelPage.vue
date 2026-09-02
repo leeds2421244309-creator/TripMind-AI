@@ -19,15 +19,25 @@ const router=useRouter();
 // const planningMode=ref(50);
 import {computed} from "vue";
 
-import AIPlanningIndicator 
+import AIPlanningIndicator
 from "@/components/create-trip/AIPlanningIndicator.vue";
+
+import { useTripData } from "@/composables/useTripData";
+
+const tripData = useTripData();
 
 
 const activeField=ref("");
 
 
 
-const errors=ref<any>({});
+const errors=ref<any>({
+
+origin:"请输入出发地",
+
+destination:"请输入目的地"
+
+});
 
 
 
@@ -135,18 +145,63 @@ const goals=[
 ];
 
 
-
+const selectedGoals=ref<string[]>([]);
 
 
 function chooseGoal(goal:string){
 
-travel.value.goal=
-goal.replace(/[^\u4e00-\u9fa5]/g,"");
+const cleanGoal=goal.replace(/[^\u4e00-\u9fa5]/g,"");
 
+const index=selectedGoals.value.indexOf(cleanGoal);
+
+if(index>-1){
+
+selectedGoals.value.splice(index,1);
+
+travel.value.goal=travel.value.goal
+
+.split("；")
+
+.map(s=>s.trim())
+
+.filter(s=>s!==cleanGoal)
+
+.join("；");
+
+}else{
+
+selectedGoals.value.push(cleanGoal);
+
+if(travel.value.goal&&travel.value.goal.trim()){
+
+travel.value.goal=travel.value.goal.trim()+"；"+cleanGoal;
+
+}else{
+
+travel.value.goal=cleanGoal;
+
+}
+
+}
 
 }
 
 
+
+
+function validateField(field:"origin"|"destination"){
+
+if(!travel.value[field]){
+
+errors.value[field]=field==="origin"?"请输入出发地":"请输入目的地";
+
+}else{
+
+delete errors.value[field];
+
+}
+
+}
 
 
 function validate(){
@@ -188,6 +243,7 @@ function next(){
 
 if(validate()){
 
+Object.assign(tripData, travel.value);
 
 router.push("/create-trip/budget");
 
@@ -303,17 +359,11 @@ errorInput:errors.origin
 
 @focus="activeField='origin'"
 
+@blur="validateField('origin')"
+
 placeholder="例如：深圳"
 
 />
-
-
-<p
-class="error"
-v-if="errors.origin"
->
-⚠ {{errors.origin}}
-</p>
 
 
 </div>
@@ -350,18 +400,11 @@ errorInput:errors.destination
 
 @focus="activeField='destination'"
 
+@blur="validateField('destination')"
+
 placeholder="例如：香港"
 
 />
-
-
-
-<p
-class="error"
-v-if="errors.destination"
->
-⚠ {{errors.destination}}
-</p>
 
 
 
@@ -401,6 +444,8 @@ placeholder="例如：演唱会、美食、摄影"
 v-for="goal in goals"
 
 :key="goal"
+
+:class="{goalActive:selectedGoals.includes(goal.replace(/[^\u4e00-\u9fa5]/g,''))}"
 
 @click="chooseGoal(goal)"
 
@@ -675,6 +720,20 @@ padding:8px 12px;
 border-radius:20px;
 
 cursor:pointer;
+
+transition:all 0.2s;
+
+}
+
+
+
+.goals button.goalActive{
+
+background:#2563eb;
+
+color:white;
+
+border-color:#2563eb;
 
 }
 
