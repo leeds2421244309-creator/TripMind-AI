@@ -9,6 +9,7 @@ from app.api.auth import auth
 from app.api import ai
 
 from app.api import chat, map,travel,budget,ocr,preference,booking,todo
+from app.api import wishlist, risk, reminder, decision_center
 
 
 app = FastAPI(
@@ -55,6 +56,18 @@ app.include_router(
 )
 app.include_router(
     todo.router
+)
+app.include_router(
+    wishlist.router
+)
+app.include_router(
+    risk.router
+)
+app.include_router(
+    reminder.router
+)
+app.include_router(
+    decision_center.router
 )
 @app.get("/")
 def root():

@@ -45,7 +45,7 @@ def calculate_budget_summary(
     for item in budget_items:
 
         # 已取消的不参与预算
-        if item.payment_status == PaymentStatus.cancelled:
+        if item.payment_status == PaymentStatus.CANCELLED:
             continue
 
         item_cost = calculate_item_cost(
@@ -55,7 +55,7 @@ def calculate_budget_summary(
 
         planned_cost += item_cost
 
-        if item.payment_status == PaymentStatus.paid:
+        if item.payment_status == PaymentStatus.PAID:
             paid_cost += item_cost
 
         elif item.payment_status in [

@@ -15,6 +15,7 @@ from app.services.todo_service import (
     get_todo_list,
     update_todo,
     delete_todo,
+    generate_todos_from_bookings,
 )
 
 router = APIRouter(
@@ -85,3 +86,25 @@ def remove_todo(
         )
 
     return {"message": "Todo deleted successfully"}
+
+
+# ================= 根据 Booking 自动生成 Todo（规则版） =================
+@router.post(
+    "/travel/{travel_id}/todo/generate",
+    response_model=TodoListResponse,
+)
+def generate_todos(
+    travel_id: int,
+    db: Session = Depends(get_db),
+):
+    """
+    规则版 Todo Generator：
+    遍历该旅行下所有 Booking，按订单类型自动生成 Todo。
+    酒店 → Check-in + Check-out
+    飞机 → 提前2小时到机场
+    高铁/火车 → 提前30分钟到站
+    演唱会/其他 → 提前30分钟入场
+    """
+    todos = generate_todos_from_bookings(db, travel_id)
+
+    return {"todos": todos}

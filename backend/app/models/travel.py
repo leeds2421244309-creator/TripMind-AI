@@ -147,4 +147,17 @@ class Travel(Base):
         uselist=False,
         cascade="all, delete-orphan",
     )
-        
+
+    #心愿单（一对多）
+    wishlist: Mapped[list["TravelWishlist"]] = relationship(
+        "TravelWishlist",
+        back_populates="travel",
+        cascade="all, delete-orphan",
+    )
+
+    #待办事项（一对多）
+    todos: Mapped[list["TravelTodo"]] = relationship(
+        "TravelTodo",
+        back_populates="travel",
+        cascade="all, delete-orphan",
+    )

@@ -4,6 +4,7 @@ from sqlalchemy import (
     BigInteger,
     DateTime,
     Enum,
+    Float,
     ForeignKey,
     Integer,
     String,
@@ -52,6 +53,17 @@ class TravelBooking(Base):
 
     address: Mapped[str | None] = mapped_column(
         Text,
+        nullable=True,
+    )
+
+    # ========= 经纬度（用于地点冲突检测）=========
+    latitude: Mapped[float | None] = mapped_column(
+        Float,
+        nullable=True,
+    )
+
+    longitude: Mapped[float | None] = mapped_column(
+        Float,
         nullable=True,
     )
 
