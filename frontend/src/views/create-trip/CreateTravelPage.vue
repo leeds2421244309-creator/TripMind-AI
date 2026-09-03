@@ -22,9 +22,9 @@ import {computed} from "vue";
 import AIPlanningIndicator
 from "@/components/create-trip/AIPlanningIndicator.vue";
 
-import { useTripData } from "@/composables/useTripData";
+import { useTripCreateStore } from "@/stores/tripCreate";
 
-const tripData = useTripData();
+const tripStore = useTripCreateStore();
 
 
 const activeField=ref("");
@@ -243,7 +243,15 @@ function next(){
 
 if(validate()){
 
-Object.assign(tripData, travel.value);
+tripStore.patchForm({
+  title: travel.value.title,
+  origin: travel.value.origin,
+  destination: travel.value.destination,
+  goal: travel.value.goal,
+  start_date: travel.value.start_date,
+  end_date: travel.value.end_date,
+  people_count: travel.value.people,
+});
 
 router.push("/create-trip/budget");
 
